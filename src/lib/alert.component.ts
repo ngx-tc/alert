@@ -1,32 +1,31 @@
 import { Component, ElementRef, HostBinding, Input } from '@angular/core';
+import { TcView, view } from '@ngx-tc/base';
 
 @Component({
   selector: 'tc-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss']
 })
-export class AlertComponent {
+export class AlertComponent implements TcView {
   @HostBinding('class') get class() {
     return 'tc-alert';
   };
   @HostBinding('class.outline') get getOutline() { return this.outline }
   @HostBinding('class.with-before-icon') @Input() beforeIcon: string;
   @HostBinding('class.with-after-icon') @Input() afterIcon: string;
-  @HostBinding('class.alert-default') get default() { return this.view === 'default' }
-  @HostBinding('class.alert-accent') get accent() { return this.view === 'accent' }
-  @HostBinding('class.alert-success') get success() { return this.view === 'success' }
-  @HostBinding('class.alert-error') get error() { return this.view === 'error' }
-  @HostBinding('class.alert-info') get info() { return this.view === 'info' }
-  @HostBinding('class.alert-warning') get warning() { return this.view === 'warning' }
+  @HostBinding('class.alert-primary') get typePrimary() { return this.tcView === view.primary};
+  @HostBinding('class.alert-accent') get typeAccent() { return this.tcView === view.accent};
+  @HostBinding('class.alert-success') get typeSuccess() { return this.tcView === view.success};
+  @HostBinding('class.alert-info') get typeInfo() { return this.tcView === view.info};
+  @HostBinding('class.alert-warning') get typeWarning() { return this.tcView === view.warning};
+  @HostBinding('class.alert-error') get typeError() { return this.tcView === view.error};
 
+  @Input('view') tcView: string | view = view.primary;
   @Input() title: string;
-  @Input() view: string;
   @Input() removable: boolean;
   @Input() outline: boolean;
 
-  constructor(private element: ElementRef) {
-    this.view = 'default';
-  }
+  constructor(private element: ElementRef) {}
 
   removeAlert() {
     this.element.nativeElement.remove();
