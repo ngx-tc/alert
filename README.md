@@ -1,24 +1,39 @@
-# Alert
+# About
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+@ngx-tc/alert is an Angular library that provides developers with the ability to easily create alerts in their applications. The library is designed to be easy to use and customizable, allowing developers to quickly and easily create alerts that fit their specific needs.
 
-## Code scaffolding
+The library includes a number of pre-built alert templates, which can be easily customized to fit the specific requirements of your application. These templates include standard alert types such as success, warning, error, and info, as well as more complex templates such as confirmation dialogs and notifications.
 
-Run `ng generate component component-name --project alert` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project alert`.
-> Note: Don't forget to add `--project alert` or else it will be added to the default project in your `angular.json` file. 
+The library is built using Angular. It is designed to be lightweight and easy to use, with minimal setup required to get started. Overall, @ngx-tc/alert is a powerful and flexible library that provides developers with the tools they need to create effective and customizable alerts for their Angular applications.
 
-## Build
+## Usage
 
-Run `ng build alert` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install `@ngx-tc/alert` in your project:
 
-## Publishing
+```
+npm install @ngx-tc/alert
+```
 
-After building your library with `ng build alert`, go to the dist folder `cd dist/alert` and run `npm publish`.
+Import `TcAlertModule` e.g. in your `app.module.ts`:
+```typescript
+import { TcAlertModule } from '@ngx-tc/alert';
 
-## Running unit tests
+@NgModule({
+  imports: [
+    ...
+      TcAlertModule
+  ],
+})
+export class AppModule {}
+```
 
-Run `ng test alert` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Use the `@ngx-tc/alert` component in you app:
+```html
+<tc-alert>
+  Alert content
+</tc-alert>
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Demo
+To view a working demo of the library in action, please follow the provided link. The demo will allow you to explore the various components and features included in this library and see how they can be used in your Angular applications.
+[http://tc-library.type-code.pro/#/components/alerts](http://tc-library.type-code.pro/#/components/alerts)

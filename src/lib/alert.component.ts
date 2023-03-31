@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostBinding, Input } from '@angular/core';
-import { TcView, view } from '@ngx-tc/base';
+import { TcView, View, view } from '@ngx-tc/base';
 
 @Component({
   selector: 'tc-alert',
@@ -20,7 +20,7 @@ export class AlertComponent implements TcView {
   @HostBinding('class.alert-warning') get typeWarning() { return this.tcView === view.warning};
   @HostBinding('class.alert-error') get typeError() { return this.tcView === view.error};
 
-  @Input('view') tcView: string | view = view.primary;
+  @Input('view') tcView: View = view.primary;
   @Input() title: string;
   @Input() removable: boolean;
   @Input() outline: boolean;
